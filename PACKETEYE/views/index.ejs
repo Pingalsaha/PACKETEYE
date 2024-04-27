@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link type="style" src="../style.css">
+    <title>Packet Sniffer</title>
+    <script>
+        function startscript(){
+            var el=document.getElementById('sniff_button');
+            if(el.innerHTML=='Start Script'){
+                el.innerHTML='Stop Script';
+                exec('sudo python3 -u "/home/xakep/Desktop/pingle/packet.py"');
+            }
+            else{
+                el.innerHTML='Start Script';
+                exec('pkill -f packet.py');
+            }
+        }
+    </script>
+</head>
+<body class="scroll-container items-center justify-center w-full flex-col flex backdrop-blur-sm h-screen bg-[url('https://img.freepik.com/free-photo/global-business-internet-network-connection-iot-internet-things-business-intelligence-concept-bus_1258-176879.jpg?w=1380')] bg-cover">
+    <div class="flex w-full py-5 bg-transparent backdrop-blur-xl px-20">
+        <span class="font-bold text-white text-xl">P</span><span class="font-bold text-white">acket</span><span class="font-bold text-white text-xl">S</span><span class="font-bold text-white">niffer</span>
+    </div>
+    <div class="items-center justify-center flex w-full flex-col max-w-7xl h-full gap-y-5">
+        <span class="font-bold text-xl text-white">About</span>
+        <span class="text-white font-semibold max-w-5xl text-center">Discover network insights with our powerful packet sniffer. Monitor, analyze, and troubleshoot network traffic in real-time. Enhance security and optimize performance with customizable filters. Essential for IT professionals and cybersecurity experts.</span>
+        <button id="sniff_button" onclick="startscript()" class="px-2 py-3 text-sm rounded-md bg-green-700 hover:bg-green-600 font-bold text-white">Start Sniffing</button>
+        <div>
+            <span></span>
+        </div>
+        <div class="bg-black w-full h-[500px] overflow-y-scroll">
+            <span class="text-white"><%= content %></span>
+        </div>
+        <!-- <iframe src="/myfile.txt"></iframe> -->
+        <script src='main.js'></script>
+    </div>
+</body>
+</html>
